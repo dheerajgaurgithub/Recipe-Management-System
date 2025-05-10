@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">All Recipes</h1>
+            <a href="/recipes/new" class="btn btn-success mb-4">Add New Recipe</a>
+
+            <% if (recipes.length===0) { %>
+                <div class="alert alert-info">
+                    No recipes found. Be the first to add a recipe!
+                </div>
+                <% } else { %>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        <% recipes.forEach(function(recipe) { %>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= recipe.dishName %>
+                                        </h5>
+                                        <span class="badge <%= 'difficulty-' + recipe.difficulty.toLowerCase() %>">
+                                            <%= recipe.difficulty %>
+                                        </span>
+                                        <p class="card-text mt-2">
+                                            <strong>Cooking Time:</strong>
+                                            <%= recipe.cookingTime %> minutes
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-muted">By <%= recipe.author.username %></small>
+                                        </p>
+                                        <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>

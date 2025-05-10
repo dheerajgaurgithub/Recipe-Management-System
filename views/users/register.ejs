@@ -1,0 +1,95 @@
+<%- include('../partials/header') %>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Register</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/users/register" method="POST" class="needs-validation" id="registerForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="username" class="form-label required">Username</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                    value="<%= typeof username != 'undefined' ? username : '' %>" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="fullName" class="form-label required">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName"
+                                    value="<%= typeof fullName != 'undefined' ? fullName : '' %>" required>
+                                <div class="invalid-feedback">
+                                    Please enter your full name.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label required">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required
+                                    minlength="6">
+                                <div class="invalid-feedback">
+                                    Password must be at least 6 characters.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="confirmPassword" class="form-label required">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Passwords do not match.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="country" class="form-label required">Country</label>
+                                <input type="text" class="form-control" id="country" name="country"
+                                    value="<%= typeof country != 'undefined' ? country : '' %>" required>
+                                <div class="invalid-feedback">
+                                    Please enter your country.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="dietaryPreference" class="form-label required">Dietary Preference</label>
+                                <select class="form-select" id="dietaryPreference" name="dietaryPreference" required>
+                                    <option value="" selected disabled>Choose...</option>
+                                    <option value="Vegetarian" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Vegetarian' ? 'selected' : '' %>>Vegetarian</option>
+                                    <option value="Vegan" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Vegan' ? 'selected' : '' %>>Vegan</option>
+                                    <option value="Pescatarian" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Pescatarian' ? 'selected' : '' %>>Pescatarian</option>
+                                    <option value="Omnivore" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Omnivore' ? 'selected' : '' %>>Omnivore</option>
+                                    <option value="Gluten-Free" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Gluten-Free' ? 'selected' : '' %>>Gluten-Free</option>
+                                    <option value="Dairy-Free" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Dairy-Free' ? 'selected' : '' %>>Dairy-Free</option>
+                                    <option value="Other" <%=typeof dietaryPreference !='undefined' &&
+                                        dietaryPreference==='Other' ? 'selected' : '' %>>Other</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a dietary preference.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <p class="mb-0">Already have an account? <a href="/users/login">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>

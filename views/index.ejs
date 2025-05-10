@@ -1,0 +1,51 @@
+<%- include('./partials/header') %>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Welcome to Recipe Management System</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Share and discover amazing recipes tailored to your dietary preferences.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <% if(user) { %>
+                    <a href="/recipes" class="btn btn-primary btn-lg px-4 gap-3">Browse Recipes</a>
+                    <a href="/recipes/new" class="btn btn-outline-secondary btn-lg px-4">Add New Recipe</a>
+                    <% } else { %>
+                        <a href="/users/login" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
+                        <a href="/users/register" class="btn btn-outline-secondary btn-lg px-4">Register</a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Create Recipes</h5>
+                        <p class="card-text">Share your culinary creations with detailed ingredients and step-by-step
+                            instructions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Discover New Dishes</h5>
+                        <p class="card-text">Explore recipes created by other users with various difficulty levels and
+                            cooking times.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Dietary Preferences</h5>
+                        <p class="card-text">Find recipes that match your dietary needs, whether you're vegetarian,
+                            vegan, or gluten-free.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer') %>

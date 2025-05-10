@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h2 class="mb-0">Add New Recipe</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/recipes" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="dishName" class="form-label required">Dish Name</label>
+                            <input type="text" class="form-control" id="dishName" name="dishName" required>
+                            <div class="invalid-feedback">
+                                Please enter the dish name.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ingredients" class="form-label required">Ingredients (comma-separated)</label>
+                            <textarea class="form-control" id="ingredients" name="ingredients" rows="4"
+                                required></textarea>
+                            <div class="invalid-feedback">
+                                Please list the ingredients.
+                            </div>
+                            <small class="form-text text-muted">Enter ingredients separated by commas (e.g., "2 cups
+                                flour, 1 tsp salt, 3 eggs")</small>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cookingTime" class="form-label required">Cooking Time (minutes)</label>
+                                <input type="number" class="form-control" id="cookingTime" name="cookingTime" min="1"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid cooking time (minimum 1 minute).
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="difficulty" class="form-label required">Difficulty Level</label>
+                                <select class="form-select" id="difficulty" name="difficulty" required>
+                                    <option value="" selected disabled>Choose...</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                    <option value="Professional">Professional</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a difficulty level.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="instructions" class="form-label required">Instructions</label>
+                            <textarea class="form-control" id="instructions" name="instructions" rows="8"
+                                required></textarea>
+                            <div class="invalid-feedback">
+                                Please provide cooking instructions.
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="/recipes" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-success">Add Recipe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
