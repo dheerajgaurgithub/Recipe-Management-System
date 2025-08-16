@@ -16,7 +16,7 @@ const recipeRoutes = require('./routes/recipes');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/recipe-management-system', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://dheerajgaurcs23:Z92d5iI6k6Ekp6SM@cluster0.gszsreo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
